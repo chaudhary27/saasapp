@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function() {
   Stripe.setPublishableKey( $('meta[name="stripe-key"]').attr('content'));
 
   // when user click form submit button prevent default submission
-  submitBtn.click(function(){
+  submitBtn.click(function(event){
     event.preventDefault();
     submitBtn.val("Processing").prop('disabled', true);
 
@@ -39,7 +39,7 @@ $(document).on('turbolinks:load', function() {
     if (error) {
       submitBtn.prop('disabled', false).val("Sign Up");
     }
-    
+
     else {
       // send card info to stripe
       Stripe.createToken({
