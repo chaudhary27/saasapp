@@ -17,6 +17,12 @@ class ProfilesController < ApplicationController
     end
   end
 
+  # GET to /users/:user_id/prodile/edit
+  def edit
+    @user = User.find(params[:user_id])
+    @profile = @user.profile
+  end
+
 
   private
     def profile_params
